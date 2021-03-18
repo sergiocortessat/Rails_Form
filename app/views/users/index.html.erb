@@ -1,12 +1,13 @@
+<div class="container mt-5">
 <p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
+<h1 class="text-center mb-3">Users</h1>
+<table class="table table-dark table-striped table-hover text-center">
   <thead>
     <tr>
-      <th>Email</th>
-      <th colspan="3"></th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th colspan = "3">Actions</th>
+      
     </tr>
   </thead>
 
@@ -21,8 +22,11 @@
       </tr>
     <% end %>
   </tbody>
+  
 </table>
 
 <br>
-
-<%= link_to 'New user', new_user_path %> 
+<div class="text-center">
+<%= link_to 'New user', new_user_path, class: "btn btn-primary" %> 
+</div>
+</div>
