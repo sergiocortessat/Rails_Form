@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: %i[new create]
+  root "users#index"
+  #resources :users, only: %i[new create edit update]
+  resources :users
 end
