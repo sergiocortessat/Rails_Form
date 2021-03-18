@@ -1,12 +1,21 @@
-<h1>The form element</h1>
+<form action="/users" accept-charset="UTF-8" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div>
+    <label for="username">Username</label><br>
+    <input type="text" name="user[username]" id="username">
+  </div>
 
-<form action="/action_page.php">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname"><br><br>
-  <input type="submit" value="Submit">
+  <div>
+    <label for="email">Email</label><br>
+    <input type="email" name="user[email]" id="email"></textarea>
+  </div>
+
+    <div>
+    <label for="password">Password</label><br>
+    <input type="password" name="user[passworddd]" id="password"></textarea>
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Create Article" data-disable-with="Create Article">
+  </div>
 </form>
-
-<p>Click the "Submit" button and the form-data will be sent to a page on the 
-server called "action_page.php".</p>
