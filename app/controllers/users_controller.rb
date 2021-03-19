@@ -11,21 +11,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def create
-  #   @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-
-  #   if @user.save
-  #     redirect_to new_user_path
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_path
+      redirect_to root_path
     else
       render :new
     end
@@ -37,9 +27,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      # redirect_to users_path
-      render :show
+    if @user.update(username: params[:user][:username], email: params[:user][:email],
+                    password: params[:user][:password])
+      render :show, location: @user
     else
       render :new
     end
@@ -48,10 +38,14 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to root_path, notice: 'User Deleted'
   end
 
   private
+
+  def set_name
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :id)
