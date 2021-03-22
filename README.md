@@ -85,6 +85,6 @@ Project Link: [Ruby-Forms](https://github.com/sergiocortessat/Rails_Form/issues/
 
 ## 📝 License
 
-This project is [MIT](LICENCE) licensed.
+This project is [MIT](LICENSE) licensed.
 
 
