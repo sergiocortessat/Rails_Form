@@ -75,7 +75,7 @@ Terminal or similar to execute the program.
 
 
 
-Project Link: [Ruby-capstone](https://github.com/sergiocortessat/Rails_Form/issues/1)
+Project Link: [Ruby-Forms](https://github.com/sergiocortessat/Rails_Form/issues/1)
 
 
 <!-- ACKNOWLEDGEMENTS -->

@@ -1,4 +1,4 @@
-<!-- <form action="/users" accept-charset="UTF-8" method="post">
+<!-- <form action='users_path' accept-charset="UTF-8" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div>
     <label for="username">Username</label><br>
@@ -20,7 +20,7 @@
   </div>
 </form> -->
 <!--
-<%= form_tag url_for(action: 'create'), mehod: 'post' do %>
+<%=form_tag(users_path) do %>
   <%= label_tag 'username' %>
   <%= text_field_tag 'username'%> <br/><br/>
   <%= label_tag 'email' %>
@@ -31,13 +31,22 @@
 <% end %>
 -->
 <div class="container-fluid justify-content-center my-5 text-center">
-<div class="form-group">
-<%= form_with model: @user  do |f|%>
-  <%= f.text_field :username, autofocus: true, placeholder: 'First Name'%> <br/><br/>
-  <%= f.email_field :email, autofocus: true, placeholder: 'Email'%> <br/><br/>
-  <%= f.password_field :password,autofocus: true,placeholder: 'Password'%><br/><br/>
-  <div><%= f.submit "Save",class:"btn btn-primary mb-2"%></div>
-<% end %>
+  <% if @user.errors.any? %>
+  <div>
+    <% @user.errors.full_messages.each do |msg| %>
+        <h6><%= msg %></h6>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="form-group my-3">
+    <%= form_with model: @user  do |f|%>
+      <%= f.text_field :username, autofocus: true, placeholder: 'First Name'%> <br/>
+      <br/>
+      <%= f.email_field :email, autofocus: true, placeholder: 'Email'%> <br/>
+      <br/>
+      <%= f.password_field :password,autofocus: true,placeholder: 'Password'%><br/>
+      <br/>
+      <div><%= f.submit "Save",class:"btn btn-primary mb-2"%></div>
+    <% end %>
+  </div>
 </div>
-</div>
-
